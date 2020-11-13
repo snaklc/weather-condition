@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="left-container">
+    <h2>Şehir adını yazın:</h2>
+    <form  [formGroup]="weatherSearchForm" (ngSubmit)="send(weatherSearchForm.value)">
+      <div class="form-group">
+        <input formControlName="location" type="text" id="weatherLocation" placeholder="Ara.." />
+      </div>
+      <button type="submit" class="btn"> Ara</button>
+    </form>
+  </div>
+  <div class="right-container" *ngIf="weatherData">
+    <h2>Hava Durumu:</h2>
+    <div class="data">
+    <h3>{{weatherData.location.name}}</h3>
+     <p>{{weatherData.current.temperature}} °C</p>
+     <p>{{weatherData.current.weather_descriptions}}</p>
+     <img src="assets/{{weatherData.current.weather_descriptions}}.png">
+    </div>
+  </div>
+</div>
